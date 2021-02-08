@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+text-align:center;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../">Home</a>
+			</div>
+		</div>
+	</nav>
+<form action="#" th:action="@{/prof/modifyStudent}" th:object="${student}">
+
+	<input type="hidden" th:field="*{id}" />
+	<label th:text="${student.name}"></label><br>
+	<input type="hidden" th:field="*{name}" />
+	<input type="hidden" th:field="*{studentId}" />
+	Exercise <input type="text" th:field="*{exercises}" /> <br>
+	Assignment1 <input type="text" th:field="*{assignment1}" /> <br>
+	Assignment2 <input type="text" th:field="*{assignment2}" /> <br>
+	Mid term Exam <input type="text" th:field="*{mitermExam}" /> <br>
+	Final Exam <input type="text" th:field="*{finalExam}" /> <br>
+	Final Project <input type="text" th:field="*{finalProject}" /> <br>
+	<input type="submit" value="Edit Student" /> <br>
+</form>
+</body>
+</html>

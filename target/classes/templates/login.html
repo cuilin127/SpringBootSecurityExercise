@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Login</title>
+<style>
+body{
+text-align:center;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1> Sheridan College Student Grade System</h1>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../">Home</a>
+			</div>
+		</div>
+	</nav>
+	<h2>Login page</h2>
+	<form th:action="@{/login}" method="post">
+		<div th:if="${param.error}">
+			<div class="alert ">Invalid username or password.</div>
+		</div>
+		<div th:if="${param.logout}">
+			<div class="alert ">You have been logged out.</div>
+		</div>
+		<div>
+			<label for="username">Username</label>:<input type="text"
+				id="username" name="username" autofocus="autofocus"
+				placeholder="Username">
+		</div>
+		<div>
+			<label for="password">Password</label>:<input type="password"
+				id="password" name="password" placeholder="Password">
+		</div>
+		<div>
+			<input type="submit" name="login-submit" id="login-submit"
+				value="Log In">
+		</div>
+	</form>
+
+</body>
+</html>

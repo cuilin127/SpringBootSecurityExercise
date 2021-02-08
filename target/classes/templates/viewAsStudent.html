@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org"
+xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+text-align:center;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<h1> Sheridan College Student Grade System</h1>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../">Home</a>
+			</div>
+		</div>
+	</nav>
+<h2 th:text="${student.name}"></h2>
+<h3 th:text="${student.studentId}"></h3>
+
+<table class="table">
+	<tr>
+		
+		<th>Exercise</th>
+		<th>Assignment1</th>
+		<th>Assignment2</th>
+		<th>Mid term Exam</th>
+		<th>Final Exam</th>
+		<th>Final Project</th>
+		<th>Overall Grade</th>
+		<th>Grade Letter</th>
+	</tr>
+	<tr>
+		<td th:text="${student.exercises}"></td>
+		<td th:text="${student.assignment1}"></td>
+		<td th:text="${student.assignment2}"></td>
+		<td th:text="${student.mitermExam}"></td>
+		<td th:text="${student.finalExam}"></td>
+		<td th:text="${student.finalProject}"></td>
+		<td th:text="${student.getOverallGrade()}"></td>
+		<td th:text="${student.getGreadeLetter()}"></td>			  	   	
+	</tr>
+
+</table><br>
+
+<form action="#"th:action="@{/logout}"method="post"><input type="submit"value="Logout"/></form>
+</body>
+</html>

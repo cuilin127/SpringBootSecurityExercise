@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+body{
+text-align:center;
+}
+</style>
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="../">Home</a>
+			</div>
+		</div>
+	</nav>
+<h1> Sheridan College Student Grade System</h1>
+<h2>Professor View</h2>
+
+<table class="table">
+	<tr>
+		<th>Name</th>
+		<th>ID</th>
+		<th>Exercise</th>
+		<th>Assignment1</th>
+		<th>Assignment2</th>
+		<th>Mid term Exam</th>
+		<th>Final Exam</th>
+		<th>Final Project</th>
+		<th>Overall Grade</th>
+		<th>Grade Letter</th>
+	</tr>
+	<tr th:each = "p:${students}">
+		<td th:text="${p.name}"></td>
+		<td th:text="${p.getStudentId()}"></td>
+		<td th:text="${p.exercises}"></td>
+		<td th:text="${p.assignment1}"></td>
+		<td th:text="${p.assignment2}"></td>
+		<td th:text="${p.mitermExam}"></td>
+		<td th:text="${p.finalExam}"></td>
+		<td th:text="${p.finalProject}"></td>
+		<td th:text="${p.getOverallGrade()}"></td>
+		<td th:text="${p.getGreadeLetter()}"></td>		
+	  	<!--  <td th:text="${p.team.getName()}"></td>     Not every Player has a team-->
+	  	   
+		<td>
+			<a href="" th:href="@{/prof/editStudent/{id}(id=${p.id})}">Edit</a>
+		</td>
+		
+		<td>
+			<a href="" th:href="@{/prof/deleteStudent/{id}(id=${p.id})}">Delete</a>
+		</td>
+		
+	</tr>
+	<tr>
+	<td>Class Average</td>
+	<td>             </td>
+	<td th:text="${avgExercise}"></td>
+	<td th:text="${avgA1}"></td>
+	<td th:text="${avgA2}"></td>
+	<td th:text="${avgMid}"></td>
+	<td th:text="${avgFinal}"></td>
+	<td th:text="${avgProject}"></td>
+	<td th:text="${avgAll}"></td>
+	</tr>
+</table><br>
+
+<form action="/prof/addStudent">
+<input type="submit" value="Add Student">
+</form>
+<form action="#"th:action="@{/logout}"method="post"><input type="submit"value="Logout"/></form>
+</body>
+</html>
